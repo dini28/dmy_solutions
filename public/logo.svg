@@ -1,0 +1,52 @@
+<svg width="1024" height="1024" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="logo-body-gradient-lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#D1D5DB" />
+      <stop offset="100%" stop-color="#9CA3AF" />
+    </linearGradient>
+
+    <linearGradient id="trail-fade-lg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.8" />
+    </linearGradient>
+
+    <filter id="soft-glow-lg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g id="large-logo-part" transform="translate(25, 0) scale(1.1)">
+    
+    <path d="M120,80 
+             C240,150 420,220 420,256 
+             C420,292 240,362 120,432 
+             L60,370 
+             C180,310 340,256 340,256 
+             C340,256 180,202 60,142 
+             Z" 
+          fill="url(#logo-body-gradient-lg)" 
+          filter="url(#soft-glow-lg)" />
+
+    <g id="motion-trails-lg" stroke="url(#trail-fade-lg)" stroke-linecap="round">
+      <line x1="10" y1="120" x2="110" y2="170" stroke-width="8" opacity="0.6" />
+      <line x1="40" y1="80" x2="140" y2="140" stroke-width="4" opacity="0.4" />
+      <line x1="10" y1="392" x2="110" y2="342" stroke-width="8" opacity="0.6" />
+      <line x1="40" y1="432" x2="140" y2="372" stroke-width="4" opacity="0.4" />
+    </g>
+
+    <g id="particles-lg" fill="#FFFFFF">
+      <circle cx="20" cy="150" r="4" opacity="0.5" />
+      <circle cx="-10" cy="210" r="2.5" opacity="0.3" />
+      <circle cx="20" cy="360" r="3" opacity="0.4" />
+      <circle cx="-5" cy="310" r="4.5" opacity="0.5" />
+    </g>
+
+    <g id="focal-glows-lg">
+      <circle cx="180" cy="180" r="6" fill="#FFFFFF" />
+      <circle cx="210" cy="320" r="5" fill="#FFFFFF" opacity="0.8" />
+      <circle cx="380" cy="256" r="10" fill="#FFFFFF" opacity="0.6" />
+    </g>
+  </g>
+</svg>

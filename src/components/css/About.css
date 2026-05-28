@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Nova+Flat&family=Pixelify+Sans:wght@400..700&display=swap');
+
+:root {
+    --about-bg: #000000;
+    --about-text: #ffffff;
+    --about-text-muted: #a1a1aa;
+    --about-text-dark: #52525b;
+    --about-border: rgba(255, 255, 255, 0.05);
+    --about-accent: #22c55e;
+}
+
+/* About Section */
+.about-section {
+    background-color: var(--about-bg);
+    padding: 140px 10%;
+    color: var(--about-text);
+    border-top: 1px solid var(--about-border);
+    position: relative;
+    font-family: 'Nova Flat', system-ui;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Left Content */
+.about-left {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-left h2 {
+    font-family: 'Audiowide', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.about-section.visible .about-left {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mono-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 4px 0;
+    border-left: 2px solid var(--about-accent);
+    padding-left: 12px;
+}
+
+.about-left h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin: 1.5rem 0 2.5rem;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+}
+
+.text-muted {
+    color: var(--about-text-muted);
+    font-weight: 800;
+}
+
+.about-content p {
+    color: var(--about-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.about-content strong {
+    color: var(--about-text);
+    font-weight: 600;
+}
+
+/* Stats Section */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--about-border);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--about-text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--about-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Right Side: Tech Specs */
+.about-right {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.about-section.visible .about-right {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tech-spec-container {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--about-border);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.spec-item {
+    padding: 2rem 0 2rem 3rem;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+}
+
+.about-section.visible .spec-item {
+    animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.spec-item:last-child {
+    padding-bottom: 0;
+}
+
+.spec-item:hover {
+    border-left-color: var(--about-text);
+    padding-left: 3.5rem;
+}
+
+.spec-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.75rem;
+}
+
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.spec-item:hover .icon-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.spec-icon {
+    color: var(--about-text);
+    opacity: 0.9;
+}
+
+.spec-header h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    color: var(--about-text);
+}
+
+.spec-item p {
+    color: var(--about-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* The vertical line "bullet" effect */
+.spec-item::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 2.5rem;
+    width: 1px;
+    height: 24px;
+    background: var(--about-text);
+    opacity: 0.6;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    .about-left,
+    .about-right,
+    .spec-item {
+        transition: none;
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 1280px) {
+    .about-section {
+        padding: 120px 8%;
+    }
+
+    .about-grid {
+        gap: 60px;
+    }
+
+    .about-left h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-section {
+        padding: 100px 6%;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .tech-spec-container {
+        border-left: none;
+        border-top: 1px solid var(--about-border);
+        padding-top: 40px;
+    }
+
+    .spec-item {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .spec-item:hover {
+        padding-left: 0;
+        transform: translateX(8px);
+    }
+
+    .spec-item::before {
+        display: none;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 80px 5%;
+    }
+
+    .about-left h2 {
+        font-size: 2rem;
+        margin: 1rem 0 2rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .spec-item {
+        padding: 1.5rem 0;
+    }
+
+    .spec-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .spec-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 60px 5%;
+    }
+
+    .about-left h2 {
+        font-size: 1.75rem;
+    }
+
+    .mono-label {
+        font-size: 0.7rem;
+    }
+
+    .about-content p {
+        font-size: 0.95rem;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .icon-wrapper {
+        width: 32px;
+        height: 32px;
+    }
+
+    .spec-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
